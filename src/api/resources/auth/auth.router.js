@@ -8,6 +8,6 @@ const authController = require("./auth.controller");
 const authRouter = express.Router();
 
 // define the routes
-authRouter.route("/").post(authController.register);
+authRouter.route("/register").post(authController.register);
 
 module.exports = authRouter;
