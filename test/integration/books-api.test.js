@@ -28,3 +28,22 @@ describe("getBooks", () => {
     expect(res.status).toBe(404);
   });
 });
+
+describe("updateBooks", () => {
+  it("should return not found ", async () => {
+    // send random id not found
+    const res = await request(server).put(`api/books/5effaa5662679b5af2c58829`);
+    expect(res.status).toBe(404);
+  });
+  it("should return status ok and update book", async () => {
+    const book = Book.create({ title: "book1" });
+
+    const res = await request(server)
+      .put(`api/books/${book.id}`)
+      .send({ title: "book1 update" });
+
+    expect(res.status).toBe(200);
+    expect(res.body.message).toMatch("book updated successfully");
+    expect(res.body.data.book).toMatchObject({ title: "book1 update" });
+  });
+});
