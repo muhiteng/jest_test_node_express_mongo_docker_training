@@ -47,3 +47,21 @@ describe("updateBooks", () => {
     expect(res.body.data.book).toMatchObject({ title: "book1 update" });
   });
 });
+
+describe("deleteBooks", () => {
+    it("should return not found ", async () => {
+      // send random id not found
+      const res = await request(server).delete(`api/books/5effaa5662679b5af2c58829`);
+      expect(res.status).toBe(404);
+    });
+    it("should return status ok and delete book", async () => {
+      =
+  
+      const res = await request(server)
+        .delete(`api/books/${book.id}`);
+  
+      expect(res.status).toBe(200);
+      expect(res.body.message).toMatch("book deleted successfully");
+      
+    });
+  });
