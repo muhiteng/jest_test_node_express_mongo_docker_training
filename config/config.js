@@ -21,3 +21,5 @@ mongoose
     console.log(`connected successfully to DB: ${process.env.DB_NAME}`)
   )
   .catch((error) => console.log(`failed to connect to DB: ${error}`));
+
+module.exports = mongoose;

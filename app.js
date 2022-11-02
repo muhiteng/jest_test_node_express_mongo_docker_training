@@ -17,8 +17,10 @@ app.use(bodyParser.json());
 app.use("/api", restRouter);
 
 // bind app to the PORT
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(
     `app is up and running in the ${process.env.NODE_ENV} mode on port ${PORT}`
   );
 });
+
+module.exports = server;

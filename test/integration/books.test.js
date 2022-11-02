@@ -1,4 +1,4 @@
-require("../../config/config.js");
+const moongoose = require("../../config/config.js");
 const booksService = require("../../src/api/resources/books/books.service.js");
 const Book = require("../../src/api/resources/books/books.model.js");
 
@@ -8,6 +8,7 @@ beforeEach(async () => {
 });
 afterAll(async () => {
   await Book.deleteMany({});
+  moongoose.disconnect();
 });
 
 describe("getBooks", () => {
