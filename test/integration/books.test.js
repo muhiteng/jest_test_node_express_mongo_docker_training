@@ -26,3 +26,20 @@ describe("getBooks", () => {
     expect(books[1]).toMatchObject({ title: "book2" });
   });
 });
+
+describe("createBook", () => {
+  it("should create book with title ", async () => {
+    await booksService.createBook({
+      title: "nodejs",
+      price: 20,
+      description: "description of nodejs",
+    });
+    const books = await booksService.getBooks({});
+    expect(books.length).toBe(1);
+    expect(books[0]).toMatchObject({
+      title: "nodejs",
+      price: 20,
+      description: "description of nodejs",
+    });
+  });
+});
