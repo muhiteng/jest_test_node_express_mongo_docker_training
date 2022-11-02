@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
-    "test": "export NODE_ENV=testing || SET \"NODE_ENV=testing\" && jest"
+    "test": "export NODE_ENV=testing || SET \"NODE_ENV=testing\" && jest --coverage"
   },
   "author": "",
   "license": "ISC",

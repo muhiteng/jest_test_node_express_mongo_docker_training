@@ -27,6 +27,11 @@ describe("getBooks", () => {
     const res = await request(server).get(`api/books/5effaa5662679b5af2c58829`);
     expect(res.status).toBe(404);
   });
+  it("should return server error 500 ", async () => {
+    // send random id not found
+    const res = await request(server).get(`api/books/45`);
+    expect(res.status).toBe(500);
+  });
 });
 
 describe("updateBooks", () => {
