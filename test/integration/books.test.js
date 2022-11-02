@@ -3,14 +3,14 @@ const booksService = require("../../src/api/resources/books/books.service.js");
 const Book = require("../../src/api/resources/books/books.model.js");
 
 //helpers
-beforeEach(() => {
-  Book.deleteMany({});
+beforeEach(async () => {
+  await Book.deleteMany({});
 });
-afterAll(() => {
-  Book.deleteMany({});
+afterAll(async () => {
+  await Book.deleteMany({});
 });
 
-describe("getbooks", () => {
+describe("getBooks", () => {
   it("should return empty array", async () => {
     const books = await booksService.getBooks();
 
